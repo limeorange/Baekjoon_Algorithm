@@ -1,4 +1,5 @@
-# 250125 토 AM 2:20
+# 250125 토 AM 2:29
+# visited 없는 버전 (map이 visited 역할 수행)
 
 import sys
 sys.setrecursionlimit(10**6)
@@ -8,8 +9,8 @@ dy = [-1, 1, 0, 0]
 dx = [0, 0, -1, 1]
 
 def dfs(y, x):
-    global visited, map_, answer, N
-    visited[y][x] = True
+    global map_, answer, N
+    map_[y][x] = False
 
     if y == N:
         answer = True
@@ -18,14 +19,13 @@ def dfs(y, x):
     for i in range(4):
         newY = y + dy[i]
         newX = x + dx[i]
-        if map_[newY][newX] and not visited[newY][newX]:
+        if map_[newY][newX]:
             dfs(newY, newX)
 
 # 0. 입력 및 초기화
 N, M = map(int, input().split())
 MAX = 1000 + 10
 map_ = [[False] * MAX for _ in range(MAX)]
-visited = [[False] * MAX for _ in range(MAX)]
 
 # 1. map에 연결 정보 채우기
 for i in range(1, N+1):
