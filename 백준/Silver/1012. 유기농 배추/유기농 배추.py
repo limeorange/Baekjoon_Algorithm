@@ -1,3 +1,6 @@
+# 250125 토 AM 1:41
+# visited의 역할을 map에서 수행하는 ver.
+
 import sys
 sys.setrecursionlimit(10**6)
 input = sys.stdin.readline
@@ -6,13 +9,13 @@ dy = [-1, 1, 0, 0]
 dx = [0, 0, -1, 1]
 
 def DFS(y, x):
-    global visited, map_
-    visited[y][x] = True
+    global map_
+    map_[y][x] = False
 
     for i in range(4):
         newY = y + dy[i]
         newX = x + dx[i]
-        if map_[newY][newX] and not visited[newY][newX]:
+        if map_[newY][newX]:
             DFS(newY, newX)
 
 # 0. 입력 및 초기화
@@ -25,7 +28,6 @@ while T > 0:
 
     # 1. map에 연결 정보 채우기
     map_ = [[False] * MAX for _ in range(MAX)]
-    visited = [[False] * MAX for _ in range(MAX)]
 
     for _ in range(K):
         x, y = map(int, input().split())
@@ -35,7 +37,7 @@ while T > 0:
     answer = 0
     for i in range(1, N+1):
         for j in range(1, M+1):
-            if map_[i][j] and not visited[i][j]:
+            if map_[i][j]:
                 DFS(i, j)
                 answer += 1
 
