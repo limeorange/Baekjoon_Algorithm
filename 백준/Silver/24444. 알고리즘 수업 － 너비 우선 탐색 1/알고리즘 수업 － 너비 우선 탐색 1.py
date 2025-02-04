@@ -1,18 +1,19 @@
-# 250204 화 PM 8:15
+# 250204 화 PM 8:18
 
 import sys
 input = sys.stdin.readline
+from collections import deque
 
 def BFS(R):
     global graph, visited, answer
     
-    q = []
+    q = deque()
     q.append(R)
     visited[R] = True
     cnt = 0
 
     while q:
-        cur = q.pop(0)
+        cur = q.popleft()
         cnt += 1
         answer[cur] = cnt
         # 현재 노드에 인접한 오름차순 노드 중 방문하지 않은 노드 방문 => 너비 우선 탐색
