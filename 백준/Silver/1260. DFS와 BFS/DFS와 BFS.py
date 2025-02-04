@@ -1,5 +1,3 @@
-# 250203 월 PM 6:07
-
 import sys
 sys.setrecursionlimit(10**6)
 input = sys.stdin.readline
@@ -36,7 +34,7 @@ def BFS(V):
 # 0. 입력 및 초기화
 N, M, V = map(int, input().split())
 MAX = N+1
-graph = [[] * MAX for _ in range(MAX)]
+graph = [[] for _ in range(MAX)]
 visited = [False] * MAX
 
 # 1. graph에 연결 정보 채우기
