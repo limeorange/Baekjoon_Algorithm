@@ -1,18 +1,16 @@
+# 250215 토 PM 4:36
+
 import sys
 input = sys.stdin.readline
 
-# 입력 받기
 N = int(input())
 lst = list(map(int, input().split()))
 
-# 고유한 값 정렬
-sorted_unique = sorted(set(lst))
+count_dict = dict()
+for idx, value in enumerate(sorted(set(lst))):
+    count_dict[value] = idx
 
-# 각 값의 인덱스를 매핑
-rank_dict = {value: idx for idx, value in enumerate(sorted_unique)}
-
-# 결과 생성
-result = [rank_dict[n] for n in lst]
-
-# 출력
+result = []
+for i in lst:
+    result.append(count_dict[i])
 print(' '.join(map(str, result)))
