@@ -1,4 +1,4 @@
-# 250217 월 PM 8:05
+# 250217 월 PM 8:07 (30m)
 
 import sys
 input = sys.stdin.readline
@@ -25,7 +25,7 @@ def BFS(si, sj, ei, ej):
         # 3) 현재 지점에 대해서 방문할 지점 탐색
         for i in range(8):
             ni, nj = ci+dx[i], cj+dy[i]
-            if 0 <= ni <= (I-1) and 0 <= nj <= (I-1):
+            if 0 <= ni < I and 0 <= nj < I:
                 if visited[ni][nj] == -1:
                     visited[ni][nj] = visited[ci][cj] + 1
                     q.append([ni, nj])
