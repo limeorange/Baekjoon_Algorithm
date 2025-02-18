@@ -1,12 +1,12 @@
-# 250219 수 AM 1:18
+# 250219 수 AM 1:24
 
 import sys
-# input = sys.stdin.readline
+input = sys.stdin.readline
 
 T = int(input())
 answer = []
 for _ in range(T):
-    string = list(input())
+    string = list(input().strip())
     stack = []
     for i in range(len(string)):
         if stack and stack[-1] == '(' and string[i] == ')':
