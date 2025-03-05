@@ -1,4 +1,4 @@
-# 250305 수 PM 6:13 / 우선순위 큐 => 힙 자료구조 활용
+# 250305 수 PM 6:15 / 우선순위 큐 => 힙 자료구조 활용
 
 import sys
 import heapq
@@ -9,7 +9,7 @@ lst = []
 for _ in range(N):
     s, e = map(int, input().split())
     lst.append((s, e))
-lst.sort(key = lambda x:(x[0], x[1]))
+lst.sort(key = lambda x:(x[0]))
 
 heap = [lst[0][1]]
 for s, e in lst[1:]:
