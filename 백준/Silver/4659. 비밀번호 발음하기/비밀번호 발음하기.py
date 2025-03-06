@@ -1,10 +1,9 @@
-# 250306 목 PM 8:08 / 코드 성능 최적화 ver. => 불필요한 반복 제거
+# 250306 목 PM 8:09 / 코드 성능 최적화 ver. => 불필요한 반복 제거
 
 import sys
 input = sys.stdin.readline
 
 mo = {'a', 'e', 'i', 'o', 'u'}
-answer = []
 while True:
     pwd = input().strip() 
     if pwd == 'end':
@@ -36,9 +35,6 @@ while True:
         prev_p = p
 
     if rule1 == rule2 == rule3 == True:
-        answer.append(f'<{pwd}> is acceptable.')
+        print(f'<{pwd}> is acceptable.')
     else:
-        answer.append(f'<{pwd}> is not acceptable.')
-
-for a in answer:
-    print(a)
+        print(f'<{pwd}> is not acceptable.')
