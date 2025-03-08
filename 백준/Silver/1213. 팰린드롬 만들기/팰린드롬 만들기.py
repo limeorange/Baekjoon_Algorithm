@@ -1,4 +1,4 @@
-# 250308 토 PM 6:20 / Counter의 key는 자동으로 정렬되지 않음!
+# 250308 토 PM 6:25 / Counter의 key는 자동으로 정렬되지 않음!
 
 import sys
 from collections import Counter
@@ -17,13 +17,11 @@ for c in counter:
         counter[c] -= 1 # 팰린드롬의 중심에 홀수개에 해당하는 문자가 놓일 예정
     if h_cnt == 2:
         print('I\'m Sorry Hansoo')
-        break
+        sys.exit()
 
 # 팰린드롬 만들기
 half = ''
 for c in sorted(counter.keys()): # Counter key 기준 '정렬'한 후 하나씩 순회해야 함
     half += c * (counter[c]//2)
 result = half + h_char + half[::-1]
-
-if h_cnt != 2:
-    print(result)
+print(result)
