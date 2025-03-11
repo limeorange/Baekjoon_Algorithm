@@ -1,17 +1,14 @@
-# 250311 화 PM 2:55
+# 250311 화 PM 3:05 / 문자열 2배로 이어붙여서 인덱스 설정하는 방식 (효율화)
 
 import sys
 input = sys.stdin.readline
 
-string = input().strip()
-a_cnt = string.count('a')
-cnt = string.count('b')
-str_len = len(string)
+ori_string = input().strip()
+string = ori_string * 2
+a_cnt = ori_string.count('a')
+cnt = ori_string.count('b')
+str_len = len(ori_string)
 
 for i in range(str_len):
-    if i < str_len-(a_cnt-1):
-        temp_str = string[i:i+a_cnt]
-    else:
-        temp_str = string[i:] + string[:a_cnt-(str_len-i)]
-    cnt = min(cnt, temp_str.count('b'))
+    cnt = min(cnt, string[i:i+a_cnt].count('b'))
 print(cnt)
